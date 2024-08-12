@@ -1,0 +1,155 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#udemy-logo img {
+    height: 40px;
+}
+
+#search-bar {
+    flex-grow: 1;
+    margin: 0 20px;
+}
+
+#search-bar input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#nav-items {
+    display: flex;
+    align-items: center;
+}
+
+#ul-list {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+#ul-list li {
+    margin-left: 20px;
+    cursor: pointer;
+    color: #007791;
+}
+
+#ul-list li:hover {
+    text-decoration: underline;
+}
+
+#body-component {
+    padding: 20px;
+}
+
+#body-heading h1 {
+    margin-bottom: 10px;
+}
+
+#para-heading {
+    margin-bottom: 20px;
+}
+
+#para-heading h3 {
+    margin-bottom: 10px;
+}
+
+#para-heading p {
+    margin-bottom: 20px;
+}
+
+#course-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+
+#course-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor:pointer;
+}
+
+#course-card img {
+    border-radius: 8px;
+}
+
+#course-title h4 {
+    margin: 10px 0 5px;
+    font-size: 18px;
+}
+
+#course-instructor p,
+#course-rating p,
+#course-duration p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.top-rated-courses-button {
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 15px 32px; /* Add some padding */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Get the element to fit the container */
+    font-size: 16px; /* Increase font size */
+    margin: 4px 2px; /* Add some margin */
+    cursor: pointer; /* Pointer/hand icon on hover */
+    border-radius: 12px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.top-rated-courses-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Shimmer UI Container */
+#shimmer-ui {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    height: 300px;
+    width: 100%;
+}
+
+/* Shimmer Course Card */
+/* #course-card {
+    width: 300px;
+    height: 200px;
+    border-radius: 8px;
+    background: #f6f7f8;
+    background-image: linear-gradient(90deg, #f6f7f8 0%, #e9e9e9 50%, #f6f7f8 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+} */
+
+/* Shimmer Animation */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
