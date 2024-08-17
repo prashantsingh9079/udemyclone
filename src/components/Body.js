@@ -37,7 +37,7 @@ const Body = () => {
                 <button onClick={
                     () => {
                         const filteredArr = courseArr.filter((course) => {
-                            return course.avg_rating > 4.4
+                            return course.avg_rating > 4.7
                         })
                         setCourseArrCopy(filteredArr);
                     }
