@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { COURSES_API_URL } from "../utility/constant";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
     const [courseArr, setCourseArr] = useState([]);
@@ -28,7 +29,6 @@ const Body = () => {
                         const filteredArray = courseArr.filter((course)=>{
                             return course.title.toLowerCase().includes(changedVal.toLowerCase());
                         })
-                        console.log("prashant ",filteredArray);
                         
                         setCourseArrCopy(filteredArray)
                     }}></input>
@@ -54,7 +54,11 @@ const Body = () => {
             {courseArr.length === 0 ? <Shimmer /> :
                 (<div id="course-container">
                     {courseArrCopy.map((course) => {
-                        return <CourseCart key={course.id} courseObj={course} />;
+                        return (
+                        <Link key={course.id} to={"/course/"+course.id}>  
+                        <CourseCart  courseObj={course} />
+                        </Link>  
+                    );
                     })}
                 </div>)}
         </div>

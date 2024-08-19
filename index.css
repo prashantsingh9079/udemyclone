@@ -153,3 +153,62 @@ body, html {
         background-position: 200% 0;
     }
 }
+
+/* Course Info Page Container */
+.course-info-page {
+    padding: 20px;
+    background-color: #f9f9f9;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Course Info Card */
+.course-info-card {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.course-info-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Course Info Card Content */
+.course-info-card h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #007791;
+}
+
+.course-info-card p {
+    margin: 10px 0 0;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Additional styling */
+.course-info-page h2 {
+    margin-bottom: 10px;
+    font-size: 28px;
+    color: #333;
+}
+
+.course-info-page h3 {
+    font-size: 22px;
+    margin-top: 20px;
+    color: #444;
+}
+
+.course-info-page p {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.6;
+}
