@@ -1,14 +1,15 @@
 import CourseCart from "../components/CourseCart";
 import { useState } from "react";
-import { useEffect } from "react";
-import { COURSES_API_URL } from "../utility/constant";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import { COURSES_API_URL } from "../utility/constant";
+import { useState, useEffect } from "react";
+import useOnlineStatus from "../utility/useOnlineStatus";
 
 const Body = () => {
+    const [searchText, setSearchText] = useState("");
     const [courseArr, setCourseArr] = useState([]);
     const [courseArrCopy, setCourseArrCopy] = useState([]);
-    const [searchText, setSearchText] = useState("");
     const fetchData = async () => {
         const data = await fetch(`${COURSES_API_URL}`);
         const json_data = await data.json();
@@ -18,7 +19,6 @@ const Body = () => {
     useEffect(() => {
         fetchData();
     }, []);
-
     return (
         <div id="body-component">
             <div id="search-bar">
@@ -26,10 +26,10 @@ const Body = () => {
                     (e) => {
                         const changedVal = e.target.value;
                         setSearchText(changedVal);
-                        const filteredArray = courseArr.filter((course)=>{
+                        const filteredArray = courseArr.filter((course) => {
                             return course.title.toLowerCase().includes(changedVal.toLowerCase());
                         })
-                        
+
                         setCourseArrCopy(filteredArray)
                     }}></input>
             </div>
@@ -55,10 +55,10 @@ const Body = () => {
                 (<div id="course-container">
                     {courseArrCopy.map((course) => {
                         return (
-                        <Link key={course.id} to={"/course/"+course.id}>  
-                        <CourseCart  courseObj={course} />
-                        </Link>  
-                    );
+                            <Link key={course.id} to={"/course/" + course.id}>
+                                <CourseCart courseObj={course} />
+                            </Link>
+                        );
                     })}
                 </div>)}
         </div>

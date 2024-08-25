@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { LOGO_URL } from "../utility/constant";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utility/useOnlineStatus";
 
 const Header = () => {
     const [btnName, setBtnName] = useState('Logout');
+    const onlineStatus = useOnlineStatus();
     return (
         <div id="header" className="header-class">
             <div id="udemy-logo">
@@ -33,7 +35,7 @@ const Header = () => {
                     </li>
                     <li>
                         <Link>
-                            Cart
+                            Status {onlineStatus?"🟩":"🟨"}
                         </Link>
                     </li>
                     <li onClick={

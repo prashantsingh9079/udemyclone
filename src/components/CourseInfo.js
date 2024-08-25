@@ -1,23 +1,10 @@
-import { useEffect, useState } from "react";
-import { COURSE_INFO_API_1 } from "../utility/constant";
-import { COURSE_INFO_API_2 } from "../utility/constant";
 import { Link, useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
+import useCourseData from "../utility/useCourseData";
 
 const CourseInfo = () => {
     const { courseId } = useParams();
-    
-    const [courseData, setCourseData] = useState([]);
-    useEffect(() => {
-        fetchCourseContents();
-    }, [courseId]);
-
-    const fetchCourseContents = async () => {
-        const API_FORMED = COURSE_INFO_API_1 + courseId + COURSE_INFO_API_2;
-        const dataFromAPI_FORMED = await fetch(API_FORMED);
-        const jsonConverted = await dataFromAPI_FORMED.json();
-        setCourseData(jsonConverted.units[0])
-    }
+    const courseData = useCourseData(courseId);
 
     if (courseData.length === 0) {
         return (
