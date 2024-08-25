@@ -5,3 +5,5 @@ export const COURSES_API_URL = "https://www.udemy.com/api-2.0/discovery-units/?c
 export const COURSE_INFO_API_1 = "https://www.udemy.com/api-2.0/discovery-units/?context=clp-bundle&from=0&page_size=3&item_count=12&course_id=";
 
 export const COURSE_INFO_API_2 = "&source_page=course_landing_page&locale=en_US&currency=inr&navigation_locale=en_US&skip_price=true&funnel_context=landing-page";
+
+export const GITHUB_API = "https://api.github.com/users/prashantsingh9079";

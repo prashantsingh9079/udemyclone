@@ -27,8 +27,8 @@ const Header = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link>
-                            Teach on Udemy
+                        <Link to="/github">
+                            Github
                         </Link>
                     </li>
                     <li>

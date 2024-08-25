@@ -7,6 +7,7 @@ import About from "./src/components/About";
 import Error from "./src/components/Error";
 import Contact from "./src/components/Contact";
 import CourseInfo from "./src/components/CourseInfo";
+import Github from "./src/components/Github";
 
 const AppLayout = () => {
     return (
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
             {
                 path: "/course/:courseId",
                 element : <CourseInfo/>
+            },
+            {
+                path: "/github",
+                element: <Github />
             }
         ],
         errorElement: <Error />
