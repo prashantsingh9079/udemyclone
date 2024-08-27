@@ -1,13 +1,13 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./src/components/Header";
-import { createBrowserRouter, RouterProvider, Outlet} from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Body from "./src/components/Body";
 import About from "./src/components/About";
 import Error from "./src/components/Error";
 import Contact from "./src/components/Contact";
 import CourseInfo from "./src/components/CourseInfo";
-import Github from "./src/components/Github";
+const Github = lazy(() => import("./src/components/Github"));
 
 const AppLayout = () => {
     return (
@@ -37,11 +37,13 @@ const router = createBrowserRouter([
             },
             {
                 path: "/course/:courseId",
-                element : <CourseInfo/>
+                element: <CourseInfo />
             },
             {
                 path: "/github",
-                element: <Github />
+                element: <Suspense fallback={<h1>loading........</h1>}>
+                    <Github />
+                </Suspense>
             }
         ],
         errorElement: <Error />
