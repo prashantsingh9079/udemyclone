@@ -3,8 +3,6 @@ import User from './User'
 
 class About extends React.Component{
   render(){
-    console.log("parent render");
-    
     return (
       <div>
         <h1>About Us Page</h1>

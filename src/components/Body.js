@@ -4,7 +4,6 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { COURSES_API_URL } from "../utility/constant";
 import { useState, useEffect } from "react";
-import useOnlineStatus from "../utility/useOnlineStatus";
 
 const Body = () => {
     const [searchText, setSearchText] = useState("");
@@ -20,39 +19,38 @@ const Body = () => {
         fetchData();
     }, []);
     return (
-        <div id="body-component">
-            <div id="search-bar">
-                <input type="text" placeholder="Search for anything ..." value={searchText} onChange={
-                    (e) => {
-                        const changedVal = e.target.value;
-                        setSearchText(changedVal);
-                        const filteredArray = courseArr.filter((course) => {
-                            return course.title.toLowerCase().includes(changedVal.toLowerCase());
-                        })
+        <div className="m-10 bg-gray-50">
+            <div className="flex justify-normal items-center mt-3">
+                <div className="mr-3 border border-gray-500 rounded-sm">
+                    <input className=" p-1" type="text" placeholder="Search for anything ..." value={searchText} onChange={
+                        (e) => {
+                            const changedVal = e.target.value;
+                            setSearchText(changedVal);
+                            const filteredArray = courseArr.filter((course) => {
+                                return course.title.toLowerCase().includes(changedVal.toLowerCase());
+                            })
 
-                        setCourseArrCopy(filteredArray)
-                    }}></input>
+                            setCourseArrCopy(filteredArray)
+                        }}></input>
+                </div>
+                <div className="content-center">
+                    <button className="border-2 rounded-md p-1 hover:bg-slate-300" onClick={
+                        () => {
+                            const filteredArr = courseArr.filter((course) => {
+                                return course.avg_rating > 4.7
+                            })
+                            setCourseArrCopy(filteredArr);
+                        }
+                    }>Top Rated Courses</button>
+                </div>
             </div>
-            <div id="filter-button" className="top-rated-courses-button">
-                <button onClick={
-                    () => {
-                        const filteredArr = courseArr.filter((course) => {
-                            return course.avg_rating > 4.7
-                        })
-                        setCourseArrCopy(filteredArr);
-                    }
-                }>Top Rated Courses</button>
-            </div>
-            <br />
-            <div id="body-heading"><h1>Web Development Courses</h1></div>
-            <br />
-            <br />
-            <div id="para-heading">
+            <div className="m-4"><h1 className="text-4xl font-bold">Web Development Courses</h1></div>
+            <div className="mb-6 text-xl pl-4">
                 <h3>Courses to get you started</h3>
                 <p>Explore courses from experienced, real-world experts.</p>
             </div>
             {courseArr.length === 0 ? <Shimmer /> :
-                (<div id="course-container">
+                (<div className="flex flex-wrap justify-evenly ">
                     {courseArrCopy.map((course) => {
                         return (
                             <Link key={course.id} to={"/course/" + course.id}>

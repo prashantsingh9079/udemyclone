@@ -14,7 +14,6 @@ class User extends React.Component {
         this.setState({
             userName : json.login
         })
-        console.log(json);
     }
 
     render() {
